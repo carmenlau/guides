@@ -186,22 +186,21 @@ First, install the Skygear JS SDK.
 npm install --save skygear
 ```
 
-Next, import it in your code.
-
-As Skygear has special integration with React Native to leverage the extended capability of the platform, instead of just importing the normal Skygear, you should do this
-
-```
-import skygear from 'skygear/react-native'
-```
-
 ### Configuring Skygear
+
+To do so, make sure you have already created an account at [Skygear.io](https://skygear.io). We will need the "app end point" and the "API key" of your Skygear app for configuration.
+
+As Skygear has special integration with React Native to leverage the extended capability of the platform, add `platform` to be `react-native` in config.
 
 You can use the following code snippet to configure the SDK to connect to server.
 
 ```
+import skygear from 'skygear';
+
 skygear.config({
   'endPoint': 'https://<your-app-name>.skygeario.com/', // trailing slash is required
   'apiKey': '<your-api-key>',
+  'platform': 'react-native',
 }).then(() => {
   console.log('skygear container is now ready for making API calls.');
 }, (error) => {
